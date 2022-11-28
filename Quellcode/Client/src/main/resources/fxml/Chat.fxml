@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterblaster.controller.ChatController">
+  <children>
+      <MenuBar>
+          <menus>
+              <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                      <Menu mnemonicParsing="false" text="Registrierung">
+                          <items>
+                              <MenuItem fx:id="RegisterNutzerMenu" mnemonicParsing="false" onAction="#registerNutzerMenuButtonClicked" text="Nutzer" />
+                              <MenuItem fx:id="RegisterMenu" mnemonicParsing="false" onAction="#registerMenuButtonClicked" text="Admin" />
+                          </items>
+                      </Menu>
+                      <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#loginMenuButtonClicked" text="Log-In" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="DatabaseView" mnemonicParsing="false" onAction="#databaseViewMenuButtonClicked" text="Filmübersicht" />
+                      <Menu fx:id="filmAnlegen" mnemonicParsing="false" text="Film anlegen ">
+                          <items>
+                              <MenuItem fx:id="FilmAuto" mnemonicParsing="false" onAction="#filmAutoMenuButtonClicked" text="automatisch" />
+                              <MenuItem fx:id="FilmManuell" mnemonicParsing="false" onAction="#filmManuellMenuButtonClicked" text="manuell" />
+                          </items>
+                      </Menu>
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="NutzerlisteMenu" mnemonicParsing="false" onAction="#nutzerlisteMenuButtonClicked" text="Nutzerliste" />
+                      <MenuItem fx:id="diskussionsgruppen" mnemonicParsing="false" onAction="#diskussionsgruppenMenuButtonClicked" text="Diskussionsgruppen" />
+                      <MenuItem fx:id="NutzeruebersichtMenu" mnemonicParsing="false" onAction="#nutzeruebersichtMenuButtonClicked" text="Nutzerübersicht" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="ReportsMenu" mnemonicParsing="false" onAction="#reportsMenuButtonClicked" text="Reports" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="EinstellungenMenu" mnemonicParsing="false" onAction="#einstellungenMenuButtonClicked" text="Einstellungen" />
+                  </items>
+              </Menu>
+          </menus>
+      </MenuBar>
+    <AnchorPane maxWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1d1d1" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="9.0" layoutY="101.0" maxWidth="1280.0" minHeight="300.0" minWidth="900.0" prefHeight="367.0" prefViewportWidth="1050.0" prefWidth="1263.0" vbarPolicy="ALWAYS">
+              <content>
+                <AnchorPane fx:id="scrollElements" maxHeight="1.7976931348623157E308" maxWidth="1130.0" prefHeight="365.0" prefWidth="1130.0" />
+              </content>
+            </ScrollPane>
+            <TextField fx:id="messageInput" layoutX="190.0" layoutY="496.0" prefHeight="26.0" prefWidth="817.0" promptText="deine Nachricht..." />
+            <Button fx:id="sendMessage" layoutX="1015.0" layoutY="496.0" mnemonicParsing="false" onAction="#sendMessageButtonClicked" text="Senden" />
+            <Label fx:id="pageTitle" layoutX="14.0" layoutY="23.0" text="Dein Chat mit">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!--<VBox prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterblaster.controller.FilmueberSichtController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Menü">
+          <items>
+            <MenuItem fx:id="DatabaseView" mnemonicParsing="false" onAction="#DatabaseViewMenuButtonClicked" text="Filmübersicht" />
+                  <MenuItem fx:id="Account" mnemonicParsing="false" onAction="#AccountMenuButtonClicked" text="Account" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="Registrierung" mnemonicParsing="false" onAction="#RegisterMenuButtonClicked" text="Registrierung" />
+            <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#LoginMenuButtonClicked" text="Log-In" />
+                  <Menu mnemonicParsing="false" text="model.Film anlegen">
+                    <items>
+                  <MenuItem fx:id="FilmManuell" mnemonicParsing="false" onAction="#FilmManuellMenuButtonClicked" text="automatisch" />
+                  <MenuItem fx:id="FilmAuto" mnemonicParsing="false" onAction="#FilmAutoMenuButtonClicked" text="manuell" />
+                    </items>
+                  </Menu>
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1d1d1" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+            <Text layoutX="-11.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmübersicht" wrappingWidth="331.21630859375" x="25.0" y="18.0">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Text>
+            <TableView fx:id="TableView" layoutX="-1.0" layoutY="80.0" prefHeight="595.0" prefWidth="1280.0">
+              <columns>
+                <TableColumn fx:id="NameColumn" editable="false" prefWidth="180.0" text="Name" />
+                <TableColumn editable="false" prefWidth="180.0" text="Kategorie" />
+                  <TableColumn prefWidth="90.0" text="Erscheinungsdatum" />
+                  <TableColumn prefWidth="180.0" text="Regisseur" />
+                  <TableColumn prefWidth="180.0" text="Drehbuchautor" />
+                  <TableColumn prefWidth="180.0" text="Cast" />
+                  <TableColumn prefWidth="90.0" text="Filmlänge" />
+              </columns>
+            </TableView>
+      </children>
+    </AnchorPane>
+  </children>-->
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterblaster.controller.FilmueberSichtController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Registrierung">
+                            <items>
+                                <MenuItem fx:id="RegisterNutzerMenu" mnemonicParsing="false" onAction="#registerNutzerMenuButtonClicked" text="Nutzer" />
+                                <MenuItem fx:id="RegisterMenu" mnemonicParsing="false" onAction="#registerMenuButtonClicked" text="Admin" />
+                            </items>
+                        </Menu>
+                        <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#loginMenuButtonClicked" text="Log-In" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="DatabaseView" mnemonicParsing="false" onAction="#databaseViewMenuButtonClicked" text="Filmübersicht" />
+                        <Menu fx:id="filmAnlegen" mnemonicParsing="false" text="Film anlegen ">
+                            <items>
+                                <MenuItem fx:id="FilmAuto" mnemonicParsing="false" onAction="#filmAutoMenuButtonClicked" text="automatisch" />
+                                <MenuItem fx:id="FilmManuell" mnemonicParsing="false" onAction="#filmManuellMenuButtonClicked" text="manuell" />
+                            </items>
+                        </Menu>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="NutzerlisteMenu" mnemonicParsing="false" onAction="#nutzerlisteMenuButtonClicked" text="Nutzerliste" />
+                        <MenuItem fx:id="diskussionsgruppen" mnemonicParsing="false" onAction="#diskussionsgruppenMenuButtonClicked" text="Diskussionsgruppen" />
+                        <MenuItem fx:id="NutzeruebersichtMenu" mnemonicParsing="false" onAction="#nutzeruebersichtMenuButtonClicked" text="Nutzerübersicht" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="ReportsMenu" mnemonicParsing="false" onAction="#reportsMenuButtonClicked" text="Reports" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="EinstellungenMenu" mnemonicParsing="false" onAction="#einstellungenMenuButtonClicked" text="Einstellungen" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane fx:id="mainPanel" maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1d1d1" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+                <Text layoutX="-11.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmübersicht" wrappingWidth="331.21630859375" x="25.0" y="18.0">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Text>
+                <TableView fx:id="filmTableView" layoutX="-1.0" layoutY="80.0" prefHeight="580.0" prefWidth="1280.0">
+                    <columns>
+                        <TableColumn fx:id="name" editable="false" onEditCancel="#EditCancel" onEditCommit="#CommitEvent" onEditStart="#EditEvent" prefWidth="180.0" text="Name" />
+                        <TableColumn fx:id="categorie" editable="false" prefWidth="180.0" text="Kategorie" />
+                        <TableColumn fx:id="erscheinungsDatum" editable="false" prefWidth="90.0" text="Erscheinungsdatum" />
+                        <TableColumn fx:id="regisseur" editable="false" prefWidth="180.0" text="Regisseur" />
+                        <TableColumn fx:id="drehBuchAutor" editable="false" prefWidth="180.0" text="Drehbuchautor" />
+                        <TableColumn fx:id="cast" editable="false" prefWidth="180.0" text="Cast" />
+                        <TableColumn fx:id="filmLaenge" editable="false" prefWidth="273.0" text="Filmlänge" />
+                    </columns>
+                </TableView>
+            <Button fx:id="EditButton" layoutX="1175.0" layoutY="30.0" mnemonicParsing="false" onAction="#EditButtonClicked" text="Bearbeiten" />
+            <Button fx:id="foreward" layoutX="1253.0" layoutY="667.0" mnemonicParsing="false" onAction="#ForewardButtonClicked" prefHeight="18.0" prefWidth="15.0" text="&gt;">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Button fx:id="back" layoutX="1230.0" layoutY="667.0" mnemonicParsing="false" onAction="#BackButtonClicked" prefHeight="18.0" prefWidth="15.0" text="&lt;">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Button fx:id="Details" layoutX="1089.0" layoutY="30.0" mnemonicParsing="false" onAction="#detailsButtonClicked" text="Details" />
+            <Button fx:id="Filter" layoutX="1026.0" layoutY="30.0" mnemonicParsing="false" onAction="#filterButtonClicked" text="Filter" />
+            <Button fx:id="addToWatchlist" layoutX="934.0" layoutY="30.0" mnemonicParsing="false" onAction="#addToWatchlistButtonClicked" text="zu Watchlist" />
+            <TextField fx:id="keyword" layoutX="215.0" layoutY="28.0" />
+            <Button fx:id="statistik" layoutX="1089.0" layoutY="30.0" mnemonicParsing="false" onAction="#statistikButtonClicked" text="Statistik" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterblaster.controller.EinladungController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" scaleShape="false">
+         <children>
+            <TextField fx:id="filmTitle" layoutX="222.0" layoutY="287.0" promptText="Film" />
+            <TextField fx:id="time" layoutX="222.0" layoutY="346.0" promptText="Uhrzeit" />
+            <DatePicker fx:id="date" layoutX="222.0" layoutY="406.0" prefWidth="159.0" promptText="Datum" />
+            <TextArea fx:id="message" layoutX="451.0" layoutY="287.0" prefHeight="146.0" prefWidth="200.0" promptText="Deine Nachricht" wrapText="true" />
+            <Button fx:id="sender" layoutX="222.0" layoutY="466.0" mnemonicParsing="false" onAction="#senderButtonClicked" text="Senden" />
+            <Label fx:id="pageTitle" layoutX="44.0" layoutY="14.0" prefHeight="123.0" prefWidth="713.0" text="DU MÖCHTEST ANGELA MERKEL ZU EINEM FILM EINLADEN?" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="subTitle" layoutX="169.0" layoutY="144.0" prefHeight="65.0" prefWidth="463.0" text="ANGELA MERKEL WIRD PER SYSTEM UND PER MAIL BENACHRICHTIGT" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

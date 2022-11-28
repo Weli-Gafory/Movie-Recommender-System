@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterblaster.controller.AddFilmAutoController">
+  <children>
+      <MenuBar>
+          <menus>
+              <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                      <Menu mnemonicParsing="false" text="Registrierung">
+                          <items>
+                              <MenuItem fx:id="RegisterNutzerMenu" mnemonicParsing="false" onAction="#registerNutzerMenuButtonClicked" text="Nutzer" />
+                              <MenuItem fx:id="RegisterMenu" mnemonicParsing="false" onAction="#registerMenuButtonClicked" text="Admin" />
+                          </items>
+                      </Menu>
+                      <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#loginMenuButtonClicked" text="Log-In" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="DatabaseView" mnemonicParsing="false" onAction="#databaseViewMenuButtonClicked" text="Filmübersicht" />
+                      <Menu fx:id="filmAnlegen" mnemonicParsing="false" text="Film anlegen ">
+                          <items>
+                              <MenuItem fx:id="FilmAuto" mnemonicParsing="false" onAction="#filmAutoMenuButtonClicked" text="automatisch" />
+                              <MenuItem fx:id="FilmManuell" mnemonicParsing="false" onAction="#filmManuellMenuButtonClicked" text="manuell" />
+                          </items>
+                      </Menu>
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="NutzerlisteMenu" mnemonicParsing="false" onAction="#nutzerlisteMenuButtonClicked" text="Nutzerliste" />
+                      <MenuItem fx:id="diskussionsgruppen" mnemonicParsing="false" onAction="#diskussionsgruppenMenuButtonClicked" text="Diskussionsgruppen" />
+                      <MenuItem fx:id="NutzeruebersichtMenu" mnemonicParsing="false" onAction="#nutzeruebersichtMenuButtonClicked" text="Nutzerübersicht" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="ReportsMenu" mnemonicParsing="false" onAction="#reportsMenuButtonClicked" text="Reports" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem fx:id="EinstellungenMenu" mnemonicParsing="false" onAction="#einstellungenMenuButtonClicked" text="Einstellungen" />
+                  </items>
+              </Menu>
+          </menus>
+      </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1d1d1" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+            <Text layoutX="-11.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filme automatisiert hinzufügen" wrappingWidth="422.21630859375" x="25.0" y="18.0">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="453.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kategorie" wrappingWidth="161.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="451.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zeitraum" wrappingWidth="299.37371826171875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="AddMovie" layoutX="465.0" layoutY="460.0" mnemonicParsing="false" onAction="#AddMovieButtonClick" prefHeight="45.0" prefWidth="350.0" text="hinzufügen">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Text layoutX="451.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="von:" wrappingWidth="38.37371826171875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="674.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bis:" wrappingWidth="31.37371826171875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="ZeitraumVon" layoutX="451.0" layoutY="360.0" prefHeight="35.0" prefWidth="161.0" />
+            <DatePicker fx:id="ZeitraumBis" layoutX="675.0" layoutY="360.0" prefHeight="35.0" prefWidth="161.0" />
+            <Text fx:id="info" fill="RED" layoutX="496.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scraping-Vorgang gestartet!" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="Kategorie" layoutX="640.0" layoutY="232.0" prefHeight="35.0" prefWidth="195.0" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

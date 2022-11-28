@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="masterblaster.controller.FilmAnsichtController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Registrierung">
+                            <items>
+                                <MenuItem fx:id="RegisterNutzerMenu" mnemonicParsing="false" onAction="#registerNutzerMenuButtonClicked" text="Nutzer" />
+                                <MenuItem fx:id="RegisterMenu" mnemonicParsing="false" onAction="#registerMenuButtonClicked" text="Admin" />
+                            </items>
+                        </Menu>
+                        <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#loginMenuButtonClicked" text="Log-In" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="DatabaseView" mnemonicParsing="false" onAction="#databaseViewMenuButtonClicked" text="Filmübersicht" />
+                        <Menu fx:id="filmAnlegen" mnemonicParsing="false" text="Film anlegen ">
+                            <items>
+                                <MenuItem fx:id="FilmAuto" mnemonicParsing="false" onAction="#filmAutoMenuButtonClicked" text="automatisch" />
+                                <MenuItem fx:id="FilmManuell" mnemonicParsing="false" onAction="#filmManuellMenuButtonClicked" text="manuell" />
+                            </items>
+                        </Menu>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="NutzerlisteMenu" mnemonicParsing="false" onAction="#nutzerlisteMenuButtonClicked" text="Nutzerliste" />
+                        <MenuItem fx:id="diskussionsgruppen" mnemonicParsing="false" onAction="#diskussionsgruppenMenuButtonClicked" text="Diskussionsgruppen" />
+                        <MenuItem fx:id="NutzeruebersichtMenu" mnemonicParsing="false" onAction="#nutzeruebersichtMenuButtonClicked" text="Nutzerübersicht" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="ReportsMenu" mnemonicParsing="false" onAction="#reportsMenuButtonClicked" text="Reports" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="EinstellungenMenu" mnemonicParsing="false" onAction="#einstellungenMenuButtonClicked" text="Einstellungen" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1d1d1" height="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+                <Text fx:id="titleName" layoutX="-11.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Filmname&gt;" wrappingWidth="771.21630859375" x="25.0" y="18.0">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Text>
+            <Button fx:id="AlleBewertungen" layoutX="644.0" layoutY="528.0" mnemonicParsing="false" onAction="#alleBewertungenButtonClicked" prefHeight="37.0" prefWidth="264.0" text="Alle Bewertungen">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <ImageView fx:id="filmBanner" fitHeight="515.0" fitWidth="500.0" layoutX="70.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../banner/platzhalter.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="name" layoutX="640.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Filmname&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <SVGPath fx:id="sternEins" content="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" fill="#fff057" layoutX="649.0" layoutY="473.0" scaleX="2.0" scaleY="2.0" />
+            <Text fx:id="kategorie" layoutX="640.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Kategorie&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="laenge" layoutX="640.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Länge&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="datum" layoutX="640.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="drehbuch" layoutX="640.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Drehbuchautor&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="regisseur" layoutX="640.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Regisseur&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <SVGPath fx:id="sternZwei" content="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" fill="#fff057" layoutX="698.0" layoutY="472.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" />
+            <SVGPath fx:id="sternDrei" content="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" layoutX="749.0" layoutY="471.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" />
+            <SVGPath fx:id="sternVier" content="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" layoutX="800.0" layoutY="472.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" />
+            <SVGPath fx:id="sternFuenf" content="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" layoutX="849.0" layoutY="472.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" />
+            <Button fx:id="FehlerMelden" layoutX="644.0" layoutY="598.0" mnemonicParsing="false" onAction="#fehlerMeldenButtonClicked" prefHeight="37.0" prefWidth="264.0" text="Fehler melden">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="Gesehen" layoutX="928.0" layoutY="528.0" mnemonicParsing="false" onAction="#gesehenButtonClicked" prefHeight="37.0" prefWidth="264.0" text="gesehen">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="Zurueck" layoutX="928.0" layoutY="598.0" mnemonicParsing="false" onAction="#zurueckButtonClicked" prefHeight="37.0" prefWidth="264.0" text="zurück">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Rectangle fx:id="ratingRect" arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="484.0" layoutX="194.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="931.0" />
+            <Text fx:id="ratingMessage" layoutX="435.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Der Film wurde zu deiner &quot;gesehen-Liste&quot; hinzugefügt. Nutze die Möglichkeit und gib' eine Bewertung ab!" textAlignment="CENTER" visible="false" wrappingWidth="448.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Slider fx:id="ratingSlider" layoutX="490.0" layoutY="232.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="67.0" prefWidth="373.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" visible="false" />
+            <TextField fx:id="ratingTitle" layoutX="490.0" layoutY="299.0" promptText="Titel..." visible="false" />
+            <TextField fx:id="ratingText" alignment="TOP_LEFT" layoutX="490.0" layoutY="335.0" prefHeight="165.0" prefWidth="373.0" promptText="Bewertung..." visible="false" />
+            <Button fx:id="saveRating" layoutX="490.0" layoutY="518.0" mnemonicParsing="false" onAction="#saveRatingButtonClicked" prefHeight="26.0" prefWidth="99.0" text="speichern" visible="false" />
+            <Button fx:id="discard" layoutX="739.0" layoutY="518.0" mnemonicParsing="false" onAction="#discardButtonClicked" text="Film nicht bewerten" visible="false" />
+            <Rectangle fx:id="issueRect" arcHeight="5.0" arcWidth="5.0" fill="#cdcdcd" height="484.0" layoutX="175.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="931.0" />
+            <TextField fx:id="errorText" alignment="TOP_LEFT" layoutX="454.0" layoutY="286.0" prefHeight="240.0" prefWidth="373.0" promptText="Beschreibung..." visible="false" />
+            <Text fx:id="errorMessage" layoutX="454.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hej! Dir ist ein Fehler aufgefallen? Nutz' das Formular um dich an unsere Admins zu wenden! Vielen Dank für deine Mitarbeit" textAlignment="CENTER" visible="false" wrappingWidth="507.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="ikea" fitHeight="150.0" fitWidth="200.0" layoutX="894.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../banner/Ikea_logo.svg.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="errorSender" layoutX="454.0" layoutY="540.0" mnemonicParsing="false" onAction="#errorSenderButtonClicked" text="senden" visible="false" />
+            <Button fx:id="discardError" layoutX="755.0" layoutY="540.0" mnemonicParsing="false" onAction="#discardErrorButtonClicked" text="verwerfen" visible="false" />
+            <Label fx:id="cast" layoutX="640.0" layoutY="374.0" text="&lt;Cast&gt;">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
